@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun run server/index.ts",
-    "dev:node":"~/Downloads/node-v20.17.0-linux-x64/bin/node --loader=ts-node/esm server/index.ts",
+    "dev:node": "~/Downloads/node-v20.17.0-linux-x64/bin/node --loader=ts-node/esm server/index.ts",
     "build": "vite build",
     "preview": "vite preview",
     "server:prod": "NODE_ENV=production bun run dev"
@@ -16,6 +16,7 @@
     "less": "^4.2.0",
     "node-gyp": "^10.2.0",
     "node-key-sender": "^1.0.11",
+    "robotjs": "^0.6.0",
     "solid-js": "^1.8.20"
   },
   "devDependencies": {

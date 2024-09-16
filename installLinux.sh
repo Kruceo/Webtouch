@@ -6,6 +6,7 @@ if [ $? -eq 0 ]; then
   RUNTIME=/bin/node
   PM=npm
   ARGS="--loader=ts-node/esm"
+  npm install ts-node
 
 else 
   RUNTIME="/home/$(whoami)/.bun/bin/bun"
@@ -27,12 +28,14 @@ bash -c "$PM install"
 
 bash -c "$PM run build "
 
-mkdir          "$INSTALL_PATH"
-mkdir          "$INSTALL_PATH/dist"
-mkdir          "$INSTALL_PATH/server"
-mv dist/*      "$INSTALL_PATH/dist"
-cp server/*    "$INSTALL_PATH/server"
-cp config.json "$INSTALL_PATH/config.json"
+mkdir            "$INSTALL_PATH"
+mkdir            "$INSTALL_PATH/dist"
+mkdir            "$INSTALL_PATH/server"
+mv dist/*        "$INSTALL_PATH/dist"
+cp server/*      "$INSTALL_PATH/server"
+cp tsconfig.json "$INSTALL_PATH/tsconfig.json"
+cp package.json  "$INSTALL_PATH/package.json"
+cp config.json   "$INSTALL_PATH/config.json"
 
 cd "$INSTALL_PATH"
 
@@ -43,7 +46,7 @@ echo "Description=Webtouch Service"                     >> /tmp/webtouch.service
 echo "After=network.target"                             >> /tmp/webtouch.service
 echo ""                                                 >> /tmp/webtouch.service
 echo [Service]                                          >> /tmp/webtouch.service
-echo "ExecStart=$RUNTIME $INSTALL_PATH/server/index.ts" >> /tmp/webtouch.service
+echo "ExecStart=$RUNTIME $ARGS $INSTALL_PATH/server/index.ts" >> /tmp/webtouch.service
 echo "WorkingDirectory=$INSTALL_PATH"                   >> /tmp/webtouch.service
 echo "Restart=always"                                   >> /tmp/webtouch.service
 echo "RestartSec=10"                                    >> /tmp/webtouch.service
