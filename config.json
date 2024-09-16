@@ -1,50 +1,62 @@
 {
   "gridTemplate": [
-    3,
-    6
+    4,
+    2
   ],
   "actions": [
     {
-      "label": "a+b",
+      "label": "icon-arrow-up-left",
+      "type": "keypress",
+      "value": "alt+tab"
+    },
+    null,
+    {
+      "label": "icon-tab",
+      "type": "keypress",
+      "value": "tab"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "label": "icon-grid-view-icon",
       "type": "keypress",
       "value": "command+d"
     },
     {
-      "label": "icon-IE",
-      "type": "javascript",
-      "value": "google"
-    },
-    {
-      "label": "6",
+      "label": "icon-arrow-up",
       "type": "keypress",
-      "value": "command+v"
-    },
-    null,
-    null,
-    {
-      "label": "icon-diamonds",
-      "type": "write-text",
-      "value": "vasco da gama"
-    },
-    null,
-    {
-      "label": "icon-paint-format",
-      "type": "javascript",
-      "value": "vasc"
+      "value": "up"
     },
     {
-      "label": "icon-edge",
-      "type": "command",
-      "value": "xdg-open https://google.com"
+      "label": "icon-home",
+      "type": "keypress",
+      "value": "alt+f4"
+    },
+    {
+      "label": "icon-arrow-left",
+      "type": "keypress",
+      "value": "left"
+    },
+    {
+      "label": "icon-checkmark",
+      "type": "keypress",
+      "value": "enter"
+    },
+    {
+      "label": "icon-arrow-right",
+      "type": "keypress",
+      "value": "right"
     },
     null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    {
+      "label": "icon-arrow-down",
+      "type": "keypress",
+      "value": "down"
+    },
     null,
     null,
     null,

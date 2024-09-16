@@ -3,6 +3,7 @@ import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import fs from 'fs';
 import type { Action, ConfigFile } from '../definitions';
+import { console } from 'inspector';
 
 let robot: typeof import("robotjs") | null = null
 
@@ -40,11 +41,12 @@ async function startServer() {
     app.get("/grid/", (req, res) => {
         const rawConfig = fs.readFileSync('./config.json', "utf-8")
         const config: ConfigFile = JSON.parse(rawConfig)
-        res.json(config)
+        res.json(config.gridTemplate)
     })
 
 
     app.post("/grid/", (req, res) => {
+        console.log("Getting grid")
         const rawConfig = fs.readFileSync('./config.json', "utf-8")
         const config: ConfigFile = JSON.parse(rawConfig)
         const obj: { cols: number, rows: number } = req.body
@@ -130,6 +132,7 @@ async function startServer() {
         // Usando Vite como middleware
         app.use(vite.middlewares);
     } else {
+        console.log("Production mode")
         // Se for produção, sirva os arquivos estáticos do diretório 'dist'
         app.use(express.static(path.resolve('dist')));
 

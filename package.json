@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun run server/index.ts",
-    "build": "tsc -b && vite build",
+    "dev:node":"~/Downloads/node-v20.17.0-linux-x64/bin/node --loader=ts-node/esm server/index.ts",
+    "build": "vite build",
     "preview": "vite preview",
     "server:prod": "NODE_ENV=production bun run dev"
   },

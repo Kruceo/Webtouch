@@ -29,6 +29,18 @@ function App() {
 
   const [getActions, setActions] = createSignal<(Action | null)[]>([])
 
+  async function updateGrid(cols?: number, rows?: number) {
+    const current = getGridTemplate()
+    const newCols = cols ?? current[0]
+    const newRows = rows ?? current[1]
+    setGridTemplate([newCols, newRows])
+    await fetch('/grid', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rows: newRows, cols: newCols })
+    })
+  }
+
   async function updateActions() {
     const res = await backend.getConfig()
     setGridTemplate(res.gridTemplate)
@@ -45,8 +57,8 @@ function App() {
         <button onclick={() => setEditMode(!getEditMode())}>{getEditMode() ? <a class='icon-floppy-disk'></a> : <a class='icon-wrench'></a>}</button>
         {getEditMode() ?
           <>
-            <Input id='columns' label='cols' type='number' onChange={(e) => setGridTemplate([parseInt(e), getGridTemplate()[1]])} defaultValue={getGridTemplate()[0].toString()}></Input>
-            <Input id='columns' label='rows' type='number' onChange={(e) => setGridTemplate([getGridTemplate()[0], parseInt(e)])} defaultValue={getGridTemplate()[1].toString()}></Input>
+            <Input id='columns' label='cols' type='number' onChange={(e) => updateGrid(e ? parseInt(e) : undefined, undefined)} defaultValue={getGridTemplate()[0].toString()}></Input>
+            <Input id='columns' label='rows' type='number' onChange={(e) => updateGrid(undefined, e ? parseInt(e) : undefined)} defaultValue={getGridTemplate()[1].toString()}></Input>
           </> : null
         }
 
