@@ -1,0 +1,50 @@
+@import "../pallete.less";
+
+.controller-button {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 8px;
+    background-color: #223;
+    width: 84px;
+    height: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &.entry {
+        animation: entry 500ms ease-in-out;
+    }
+
+    &.hidden {
+        visibility: collapse;
+    }
+
+    &.edit-mode {
+        animation: edit-mode 1200ms ease infinite;
+    }
+}
+
+
+@keyframes edit-mode {
+
+    100% {
+        outline: 1px @color4 solid;
+        outline-offset: 2px;
+        outline-color: transparent;
+    }
+
+
+}
+
+@keyframes entry {
+    0% {
+        scale: 0;
+        rotate: 30deg;
+    }
+
+    100% {
+        scale: 1;
+    }
+
+
+}

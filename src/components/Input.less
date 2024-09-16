@@ -1,0 +1,115 @@
+@import "../pallete.less";
+
+.input {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: relative;
+
+    .entry {
+
+        // padding-top: 15px;
+        .bottom {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            border-bottom: 2px solid @text;
+            border-left: 2px solid @text;
+            border-right: 2px solid @text;
+            border-radius: 0px 0px 8px 8px;
+        }
+
+        .top {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            display: flex;
+
+            .l {
+                border-top: 2px solid @text;
+                border-left: 2px solid @text;
+                // background-color: #ff08;
+                width: 20px;
+                height: 100%;
+                border-radius: 8px 0px;
+            }
+
+            .top-label {
+                // display: none;
+                margin: 0;
+                width: fit-content;
+                transform: translate(0px, -35%);
+                max-width: 100%;
+                max-height: 100%;
+                padding: 0px 6px;
+                text-transform: uppercase;
+                font-size: 10px;
+                transition:
+                    padding 100ms 0ms linear,
+                    max-width 500ms 0ms ease,
+                    font-size 200ms 0ms ease,
+                    transform 200ms 0ms ease;
+            }
+
+            .r {
+                // background-color: #00f8;
+                border-top: 2px solid @text;
+                border-right: 2px solid @text;
+                width: 100%;
+                height: 100%;
+                border-radius: 0px 8px 0px 8px;
+            }
+        }
+
+        input,
+        select {
+            color: @text;
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            position: relative;
+            outline: none;
+            font-size: 14px;
+            z-index: 1;
+            appearance: none;
+
+            &::placeholder {
+                opacity: 0;
+            }
+
+            &:placeholder-shown~.top .top-label {
+                transform: translate(-8px, 7px);
+                font-size: 14px;
+                max-width: 0%;
+                max-height: 0%;
+                padding: 0px 0px;
+            }
+
+            &:focus~.top>.top-label {
+                transform: translate(0px, -35%);
+                font-size: 10px;
+                max-width: 100%;
+                max-height: 100%;
+                padding: 0px 6px;
+                transition: 
+                max-width 200ms 0ms ease, 
+                padding 200ms 0ms ease, 
+                font-size 200ms 200ms ease, 
+                transform 200ms 200ms ease;
+            }
+
+            option {
+                background-color: @background;
+                color: @text;
+            }
+        }
+
+
+    }
+}

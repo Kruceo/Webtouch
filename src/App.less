@@ -1,0 +1,50 @@
+@import "./pallete.less";
+
+body {
+  margin: 0 auto;
+  background-color: @background;
+
+  #root {
+    width: 100%;
+    margin: 0;
+    padding-inline: 20px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  image-rendering: optimizeQuality;
+}
+
+#options-deck {
+  padding: 10px 0px;
+  display: flex;
+  gap: 20px;
+
+  .input {
+    z-index: 0;
+  }
+
+  button {
+    background-color: transparent;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+
+  .controller-grid {
+    margin: 0 auto;
+    width: fit-content;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+  }
+}

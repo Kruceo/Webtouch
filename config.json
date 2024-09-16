@@ -1,0 +1,57 @@
+{
+  "gridTemplate": [
+    3,
+    6
+  ],
+  "actions": [
+    {
+      "label": "a+b",
+      "type": "keypress",
+      "value": "command+d"
+    },
+    {
+      "label": "icon-IE",
+      "type": "javascript",
+      "value": "google"
+    },
+    {
+      "label": "6",
+      "type": "keypress",
+      "value": "command+v"
+    },
+    null,
+    null,
+    {
+      "label": "icon-diamonds",
+      "type": "write-text",
+      "value": "vasco da gama"
+    },
+    null,
+    {
+      "label": "icon-paint-format",
+      "type": "javascript",
+      "value": "vasc"
+    },
+    {
+      "label": "icon-edge",
+      "type": "command",
+      "value": "xdg-open https://google.com"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "label": "desktop",
+      "type": "keypress",
+      "value": "WINDOWS+d"
+    }
+  ]
+}

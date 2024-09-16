@@ -1,0 +1,55 @@
+@import "../pallete.less";
+
+.form-bg {
+    background-color: @container-bg;
+    width: 100%;
+    height: 100vh;
+    background-color: #000c;
+    display: block;
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button-edit-form {
+        gap: 20px;
+        background-color: @container-bg;
+        border-radius: 28px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        .input-container{
+            position: relative;
+            a{
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                transform: translate(-100%,-50%);
+                padding: 0px 10px;
+                z-index: 1;
+            }
+        }
+        .input {
+            width: 100%;
+        }
+
+        .bottom-btns {
+            display: flex;
+            button {
+                // width: fit-content;
+            }
+
+            .delete-btn {
+                // background-color: rgb(197, 2, 2);
+                padding: 0.6rem;
+                color: #f22;
+                cursor: pointer;
+                margin-left: auto;
+            }
+        }
+
+    }
+}
